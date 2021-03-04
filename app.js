@@ -1,3 +1,4 @@
+
 function init() {
     
     let counter = 0, currentPoints = 0, highestPoints = 100;

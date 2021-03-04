@@ -40,177 +40,6 @@
 
             <div class="game-wrapper">
 
-                <div class="row">
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="back" style="display: flex;">
-                            <div class="center"></div>
-                        </div>
-                        <div class="front" style="display: none;">
-                            <img src="" alt="">
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
@@ -223,6 +52,19 @@
         </div>
 
     </section>
+
+    <script type="module">
+        import createCard from './createCard.js';
+
+        let cardsElement = document.querySelector('.game-wrapper');
+        let cardsHtml = '';
+
+        for (let i = 0; i < 4; i++) {
+            cardsHtml += createCard();
+        }
+
+        cardsElement.innerHTML = cardsHtml;
+    </script>
 
 </body>
 
