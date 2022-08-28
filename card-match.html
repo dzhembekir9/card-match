@@ -1,71 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Card match</title>
     <script src="./app.js"></script>
-    <link rel="stylesheet" href="./styles.css">
-</head>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
-<body>
-
+  <body>
     <section>
+      <div class="main-wrapper">
+        <div class="rules-wrapper">
+          <h1 class="title">Card Match</h1>
 
-        <div class="main-wrapper">
+          <div class="btn">Start new game</div>
 
-            <div class="rules-wrapper">
+          <div class="rules">
+            <h2>Rules:</h2>
+            <p>Find all matching pairs in fewer number of guesses possible.</p>
+            <br />
+            <p>
+              Note: If you open cards which do not match, wait for them to flip
+              over to continue with your next guess.
+            </p>
+          </div>
 
-                <h1 class="title">Card Match</h1>
-
-                <div class="btn">Start new game</div>
-
-                <div class="rules">
-                    <h2>Rules:</h2>
-                    <p>
-                        Find all matching pairs in fewer number of guesses possible.
-                    </p>
-                    <br>
-                    <p>
-                        Note: If you open cards which do not match, wait for them to flip over to continue with your
-                        next guess.
-                    </p>
-                </div>
-
-                <div class="footer">Made with &hearts; by Dzhem Bekir</div>
-
-            </div>
-
-            <div class="game-wrapper">
-
-
-            </div>
-
-            <div class="score-wrapper">
-                <div class="current-guesses">Current guesses: </div>
-
-                <div class="best-score">Best score: </div>
-            </div>
-
+          <div class="footer">Made with &hearts; by Dzhem Bekir</div>
         </div>
 
+        <div class="game-wrapper"></div>
+
+        <div class="score-wrapper">
+          <div class="current-guesses">Current guesses:</div>
+
+          <div class="best-score">Best score:</div>
+        </div>
+      </div>
     </section>
 
     <script type="module">
-        import createCard from './createCard.js';
+      import createCard from './createCard.js';
 
-        let cardsElement = document.querySelector('.game-wrapper');
-        let cardsHtml = '';
+      let cardsElement = document.querySelector('.game-wrapper');
+      let cardsHtml = '';
 
-        for (let i = 0; i < 4; i++) {
-            cardsHtml += createCard();
-        }
+      for (let i = 0; i < 4; i++) {
+        cardsHtml += createCard();
+      }
 
-        cardsElement.innerHTML = cardsHtml;
+      cardsElement.innerHTML = cardsHtml;
     </script>
-
-</body>
-
+  </body>
 </html>
