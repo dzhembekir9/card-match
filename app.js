@@ -19,6 +19,10 @@ function init() {
     gameFinished = false
     toBeChecked = []
 
+    backSideEl.forEach((backSide) => {
+      backSide.style.pointerEvents = 'auto'
+    })
+
     const fruits = [
       './fruit-images/apple.png',
       './fruit-images/kiwi.png',
