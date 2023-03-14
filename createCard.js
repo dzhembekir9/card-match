@@ -41,6 +41,6 @@ const createCard = () => `
             </div>
         </div>
     </div>
-`;
+`
 
-export default createCard;
+export default createCard

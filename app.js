@@ -3,54 +3,54 @@ function init() {
     currentPoints = 0,
     highestPoints = 100
   let toBeChecked = []
-  let gameFinished
+  let gameFinished = null
 
-  let cardEl = document.querySelectorAll('.card')
-  let backSideEl = document.querySelectorAll('.back')
-  let imgEl = document.querySelectorAll('img')
-  let scoreEl = document.querySelector('.current-guesses')
-  let highestScoreEl = document.querySelector('.best-score')
-  let startNewGameBtn = document.querySelector('.btn')
+  const cardEl = document.querySelectorAll('.card')
+  const backSideEl = document.querySelectorAll('.back')
+  const imgEl = document.querySelectorAll('img')
+  const scoreEl = document.querySelector('.current-guesses')
+  const highestScoreEl = document.querySelector('.best-score')
+  const startNewGameBtn = document.querySelector('.btn')
 
-  let backSideArr = Array.from(backSideEl)
+  const backSideArr = Array.from(backSideEl)
 
   // Creates new game
   const createNewGame = () => {
     gameFinished = false
     toBeChecked = []
 
-    let fruits = [
-      './fruits-image/apple.png',
-      './fruits-image/kiwi.png',
-      './fruits-image/blueberry.png',
-      './fruits-image/cherry.png',
-      './fruits-image/grape.png',
-      './fruits-image/mango.png',
-      './fruits-image/orange.png',
-      './fruits-image/apple.png',
-      './fruits-image/kiwi.png',
-      './fruits-image/blueberry.png',
-      './fruits-image/cherry.png',
-      './fruits-image/grape.png',
-      './fruits-image/mango.png',
-      './fruits-image/orange.png',
-      './fruits-image/coconut.png',
-      './fruits-image/joker.png',
-      './fruits-image/coconut.png',
-      './fruits-image/joker.png',
-      './fruits-image/pineapple.png',
-      './fruits-image/pineapple.png',
+    const fruits = [
+      './fruit-images/apple.png',
+      './fruit-images/kiwi.png',
+      './fruit-images/blueberry.png',
+      './fruit-images/cherry.png',
+      './fruit-images/grape.png',
+      './fruit-images/mango.png',
+      './fruit-images/orange.png',
+      './fruit-images/apple.png',
+      './fruit-images/kiwi.png',
+      './fruit-images/blueberry.png',
+      './fruit-images/cherry.png',
+      './fruit-images/grape.png',
+      './fruit-images/mango.png',
+      './fruit-images/orange.png',
+      './fruit-images/coconut.png',
+      './fruit-images/joker.png',
+      './fruit-images/coconut.png',
+      './fruit-images/joker.png',
+      './fruit-images/pineapple.png',
+      './fruit-images/pineapple.png',
     ]
 
-    imgEl.forEach((x) => {
-      let randomNum = Math.floor(Math.random() * fruits.length)
-      let fruit = fruits.splice(randomNum, 1)
-      x.setAttribute('src', fruit)
+    imgEl.forEach((img) => {
+      const randomNum = Math.floor(Math.random() * fruits.length)
+      const fruit = fruits.splice(randomNum, 1)
+      img.setAttribute('src', fruit)
     })
 
-    cardEl.forEach((x) => {
-      x.children[0].style.display = 'flex'
-      x.children[1].style.display = 'none'
+    cardEl.forEach((card) => {
+      card.children[0].style.display = 'flex'
+      card.children[1].style.display = 'none'
     })
 
     scoreEl.innerHTML = 'Current guesses: '
@@ -74,6 +74,10 @@ function init() {
 
     // Checks if the flipped cards match up
     if (counter > 0 && counter % 2 === 0) {
+      backSideEl.forEach((backSide) => {
+        backSide.style.pointerEvents = 'none'
+      })
+
       let last =
         toBeChecked[toBeChecked.length - 1].parentElement.children[1]
           .children[0].src
@@ -85,7 +89,7 @@ function init() {
       scoreEl.innerHTML = `Current guesses: ${currentPoints}`
 
       if (!(last === previous)) {
-        setTimeout(function () {
+        setTimeout(() => {
           toBeChecked[
             toBeChecked.length - 1
           ].parentElement.children[1].style.display = 'none'
@@ -95,6 +99,16 @@ function init() {
             toBeChecked.length - 2
           ].parentElement.children[1].style.display = 'none'
           toBeChecked[toBeChecked.length - 2].style.display = 'flex'
+
+          backSideEl.forEach((backSide) => {
+            backSide.style.pointerEvents = 'auto'
+          })
+        }, 700)
+      } else {
+        setTimeout(() => {
+          backSideEl.forEach((backSide) => {
+            backSide.style.pointerEvents = 'auto'
+          })
         }, 700)
       }
     }
@@ -119,8 +133,8 @@ function init() {
     }
   }
 
-  backSideEl.forEach((x) => {
-    x.addEventListener('click', (e) => {
+  backSideEl.forEach((backSide) => {
+    backSide.addEventListener('click', (e) => {
       flipCard(e)
     })
   })
